@@ -188,7 +188,7 @@ input {
       padding-left: 3vw;  
       padding-right: 3vw; 
     }
-  }
+  
   .bubble::after {
     content: '';
     position: absolute;
@@ -201,7 +201,11 @@ input {
     border-left-color: #ffffff;
     z-index: 1; /* 三角形的 z-index 層級較低 */
   }
-  
+  .nav-btn {
+    width:9vw;
+    height: 9vw;
+}
+}
   
   @media screen and (max-width: 480px) {
     .bubble {

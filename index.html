@@ -92,9 +92,9 @@
 
   // 牆壁：動態適應螢幕尺寸
   const walls = [
-    Bodies.rectangle(canvasWidth / 2, canvasHeight, canvasWidth, 20, { isStatic: true }), // 底部
-    Bodies.rectangle(0, canvasHeight / 2, 20, canvasHeight, { isStatic: true }), // 左側
-    Bodies.rectangle(canvasWidth, canvasHeight / 2, 20, canvasHeight, { isStatic: true }) // 右側
+    Bodies.rectangle(canvasWidth / 2, canvasHeight, canvasWidth,10, { isStatic: true }), // 底部
+    Bodies.rectangle(0, canvasHeight / 2, 10, canvasHeight, { isStatic: true }), // 左側
+    Bodies.rectangle(canvasWidth, canvasHeight / 2, 10, canvasHeight, { isStatic: true }) // 右側
   ];
   
   World.add(world, walls);
