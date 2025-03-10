@@ -200,10 +200,7 @@ input {
     border: 10px solid transparent;
     border-left-color: #ffffff;
     z-index: 1; /* 三角形的 z-index 層級較低 */
-  }
-  .nav-btn {
-    width:9vw;
-    height: 9vw;
+  
 }
 }
   
@@ -272,12 +269,18 @@ input {
   right: 20px; /* 靠右 */
 }
 
-
+@media screen and (max-width: 768px) {
+.nav-btn {
+  width:9vw;
+  height: 9vw;
+}
+}
 
 
 footer {
   position: fixed; /* 固定位置 */
   bottom: 0; /* 固定在頁面底部 */
+  width: 100%;        /* 讓圖片寬度隨著父容器大小調整 */
 }
 
 footer img {
@@ -337,8 +340,8 @@ footer img {
 
 @media screen and (max-width: 768px) {
   #translateBtn, #mouseWebBtn {
-      width: 10vw;
-      height: 10vw;
+      width: 15vw;
+      height: 15vw;
       border: none;
       background-color: transparent;
       cursor: pointer;
@@ -356,23 +359,89 @@ footer img {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   #translateBtn, #mouseWebBtn {
-      width: 10vw;
-      height: 10vw;
+      width: 15vw;
+      height: 15vw;
       border: none;
       background-color: transparent;
       cursor: pointer;
       position: fixed;
       bottom: 10px;
       z-index: 100;
-      top: 88%;
+      top: 85%;
   }
   #translateBtn {
-      right: 50px; /* 調整這裡的值來改變位置 */
+      right: 63px; /* 調整這裡的值來改變位置 */
   }
   
   #mouseWebBtn {
-      right: 10px; /* 調整這裡的值來改變位置 */
+      right: 8px; /* 調整這裡的值來改變位置 */
   }
 }
+
+@media screen and (max-width: 1025px) {
+  .subtext img {
+    margin-top: 80px;
+  max-width:85%;}
+  #translateBtn, #mouseWebBtn {
+      width: 11vw;
+      height: 11vw;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      position: fixed;
+      bottom: 10px;
+      z-index: 100;
+      top: 85%;
+  }
+  #translateBtn {
+      right: 11vw; /* 調整這裡的值來改變位置 */
+  }
+  
+  #mouseWebBtn {
+      right: 8px; /* 調整這裡的值來改變位置 */
+  }
+  .header {
+    position: relative; /* 讓 .subtext 以它為基準定位 */
+    z-index: 10; /* 確保 header 在較低層 */
+    top: 0.2%; /* 上移動以與 header 重疊 */
+  }
+  input {
+
+    top: 70%;
+  }
+  }
+
+  @media screen and (max-width: 1366px) {
+    .subtext img {
+      margin-top: 10vw;
+    max-width:75%;}
+    #translateBtn, #mouseWebBtn {
+        width: 10vw;
+        height: 10vw;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        position: fixed;
+        bottom: 10px;
+        z-index: 100;
+        top: 85%;
+    }
+    #translateBtn {
+        right: 11vw; /* 調整這裡的值來改變位置 */
+    }
+    
+    #mouseWebBtn {
+        right: 8px; /* 調整這裡的值來改變位置 */
+    }
+    .header {
+      position: relative; /* 讓 .subtext 以它為基準定位 */
+      z-index: 10; /* 確保 header 在較低層 */
+      top: 0.2%; /* 上移動以與 header 重疊 */
+    }
+    input {
+  
+      top: 80%;
+    }
+    }
