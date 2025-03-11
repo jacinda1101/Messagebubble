@@ -445,3 +445,30 @@ footer img {
       top: 80%;
     }
     }
+    @media screen and (max-width: 480px) {
+      .subtext img {
+        display: flex;
+        justify-content: center; /* 水平置中 */
+        max-width:101%;
+        margin-top: 2vw;
+      }
+      input {
+      width: 70vw;;
+        top: 58%;
+      }
+      .nav-btn {
+        position: absolute;
+        margin-top: -25vw;
+      z-index: 100;}
+      #translateBtn, #mouseWebBtn {
+        top: 98%;
+        width: 20vw;
+        height: 20vw;}
+        #translateBtn {
+          right: 18vw; /* 調整這裡的值來改變位置 */
+      }
+      
+      #mouseWebBtn {
+          right: 8px; /* 調整這裡的值來改變位置 */
+      }
+    }
