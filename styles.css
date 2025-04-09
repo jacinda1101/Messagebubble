@@ -1,474 +1,483 @@
 @font-face {
-      font-family: 'cubic11'; /* 自定義字體名稱 */
-      src: url('./font/Cubic_11.woff') format('woff'); /* 字體文件路徑 */
-      font-weight: normal;
-      font-style: normal;
-    }
+  font-family: 'cubic11'; /* 自定義字體名稱 */
+  src: url('./font/Cubic_11.woff') format('woff'); /* 字體文件路徑 */
+  font-weight: normal;
+  font-style: normal;
+}
 
-   /* Ensure the subtext image maintains its aspect ratio on resizing */
+/* Ensure the subtext image maintains its aspect ratio on resizing */
 .subtext img {
-  width: 100%; /* Ensure the image scales with the width of its container */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 100%;
-  object-fit: contain; /* This ensures the image fits well within the container while maintaining its aspect ratio */
+width: 100%; /* Ensure the image scales with the width of its container */
+height: auto; /* Maintain aspect ratio */
+max-width: 100%;
+object-fit: contain; /* This ensures the image fits well within the container while maintaining its aspect ratio */
 }
 @media screen and (min-width: 769px) {
-    .header {
-      position: relative; /* 讓 .subtext 以它為基準定位 */
-      z-index: 10; /* 確保 header 在較低層 */
-      top: -5%; /* 上移動以與 header 重疊 */
+.header {
+  position: relative; /* 讓 .subtext 以它為基準定位 */
+  z-index: 10; /* 確保 header 在較低層 */
+  top: -5%; /* 上移動以與 header 重疊 */
 
-    }
-  
-    .subtext img {
-      position: absolute;
-      top: 0%; /* 向上移動以與 header 重疊 */
-      left: 50%;
-      transform: translateX(-50%);
-      max-width: 40%;
-      height: auto;
-      z-index: 20; /* 讓 subtext 在 header 上方 */
-    }
-  }
-  
+}
+
+.subtext img {
+  position: absolute;
+  top: 0%; /* 向上移動以與 header 重疊 */
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 40%;
+  height: auto;
+  z-index: 20; /* 讓 subtext 在 header 上方 */
+}
+}
+
 
 @media screen and (max-width: 768px) {
-  .subtext img {
-    height: auto; /* Allow the image to resize with the screen width */
-    max-width: 100%; /* Ensure it does not exceed the width */
-  }
+.subtext img {
+height: auto; /* Allow the image to resize with the screen width */
+max-width: 100%; /* Ensure it does not exceed the width */
+}
 
 
-  }
+}
 
 /*
-  footer img {
-    max-width: 100%; /* Allow footer image to scale on smaller screens 
-  } */
+footer img {
+max-width: 100%; /* Allow footer image to scale on smaller screens 
+} */
 
-  #progressBar {
-    width: 90%; /* Make progress bar fit on smaller screens */
-  }
+#progressBar {
+width: 90%; /* Make progress bar fit on smaller screens */
+}
 
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background-image: 
-    url('./img/bg.png'), 
-    url('./img/pattern.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* 確保背景圖片隨滾動固定 */
-  background: linear-gradient(to bottom, #ffffff 0%, #7cddcf 45%, #ffffff 100%);
-  overflow: hidden; /* 隱藏超出範圍的背景 */
+margin: 0;
+padding: 0;
+min-height: 100vh;
+background-color: #1e010b;
+background: 
+linear-gradient(to bottom, #00ffff 0%, #e50771 15%, transparent 45%, #e50771 85%, #00ffff 100%), /* 漸層色組在最上層 */
+url('./img/pattern.webp') repeat, /* pattern 重複 */
+url('./img/bg.png') no-repeat center; /* 背景圖片 */
+background-size: cover, 100px 100px, cover; /* 設定 pattern 單位為 100x100px */
+background-position: center, center, center; /* 確保背景位置正確 */
+background-attachment: fixed; /* 確保背景圖片隨滾動固定 */
+overflow: hidden; /* 隱藏超出範圍的背景 */
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    background-size: contain; /* 確保背景圖片在小螢幕上完整顯示 */
-    overflow: hidden; /* 隱藏超出範圍的背景 */
-  }
+body {
+background-size: contain; /* 確保背景圖片在小螢幕上完整顯示 */
+overflow: hidden; /* 隱藏超出範圍的背景 */
+}
 }
 
 @media screen and (max-width: 480px) {
-  body {
-    background-size: contain; /* 確保背景圖片在非常小的螢幕上完整顯示 */
-    overflow: hidden; /* 隱藏超出範圍的背景 */
-  }
+body {
+background-size: contain; /* 確保背景圖片在非常小的螢幕上完整顯示 */
+overflow: hidden; /* 隱藏超出範圍的背景 */
+}
 }
 
 body {
-        cursor: url('mouse.svg'), auto; /* 確保游標顯示 mouse.png */
-        text-align: center;
-        font-family: Arial, sans-serif;
-    }
-    
-body::after {
-  content: '';
-  position: fixed;
-  width: 32px; /* 根據 mouse.svg 的實際大小調整 */
-  height: 32px; /* 根據 mouse.svg 的實際大小調整 */
-  background: url('mouse.svg') no-repeat center center;
-  filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.8)); /* 添加陰影效果 */
-  pointer-events: none; /* 確保不會影響點擊事件 */
+    cursor: url('mouse.svg'), auto; /* 確保游標顯示 mouse.png */
+    text-align: center;
+    font-family: Arial, sans-serif;
 }
-  
+
+body::after {
+content: '';
+position: fixed;
+width: 32px; /* 根據 mouse.svg 的實際大小調整 */
+height: 32px; /* 根據 mouse.svg 的實際大小調整 */
+background: url('mouse.svg') no-repeat center center;
+filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.8)); /* 添加陰影效果 */
+pointer-events: none; /* 確保不會影響點擊事件 */
+}
+
 
 
 input {
-    font-family: 'Cubic11';
-    position: absolute;
-    color: #b3b3b3;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80vw;  /* Use viewport width for better responsiveness */
-    max-width: 570px;  /* Set a max-width to prevent it from becoming too wide */
-    height: 32px;
-    text-align: left;
-    border-radius: 60px;
-    border-color: #ffffff;
-    font-size: 2vw;  /* Adjust font size relative to viewport */
-    padding: 2vw;
-    padding-left: 2vw; /* 調整這裡的值來改變文字的靠右程度 */
-    outline: none;
-    z-index: 40;
-    background-color: #ffffff;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    border: none;
-  }
-  
-  input:focus {
-    border-color: #ffffff;
-    box-shadow: none;
-    background-color: #ffffff;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-  }
-  
-  input::placeholder {
-    color: #b3b3b3;
-    opacity: 1;
-  }
-  
-  @media screen and (max-width: 768px) {
-    input {
-      width: 70vw;  /* Adjust width on smaller screens */
-      font-size: 5vw;  /* Adjust font size for smaller screens */
-      padding-left: 4vw; /* 調整這裡的值來改變文字的靠右程度 */
-
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    input {
-      width: 85vw;  /* Adjust width further for very small screens */
-      font-size: 5vw;  /* Increase font size for very small screens */
-      padding-left: 4vw; /* 調整這裡的值來改變文字的靠右程度 */
-
-    }
-  }
-  
-
-.bubble {
-  position: absolute;
-  color: #582226;
-  font-size: 54px;  
-  text-align: center;
-  line-height: 1.4;
-  background-color: #ffffff; 
-  border: 0.5px solid #ffffff;
-  border-radius: 65px;
-  padding: 30px; 
-  padding-left: 35px;  
-  padding-right: 35px; 
-  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.4));  
-  z-index: 30; /* 氣泡框的 z-index 層級 */
-  font-family: 'Cubic11'; 
+font-family: 'Cubic11';
+position: absolute;
+color: #333333;
+top: 75%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 80vw;  /* Use viewport width for better responsiveness */
+max-width: 570px;  /* Set a max-width to prevent it from becoming too wide */
+height: 32px;
+text-align: left;
+border-radius: 60px;
+border-color: #ffffff;
+font-size: 2vw;  /* Adjust font size relative to viewport */
+padding: 2vw;
+padding-left: 2vw; /* 調整這裡的值來改變文字的靠右程度 */
+outline: none;
+z-index: 40;
+background-color: #ffffff;
+box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+border: none;
 }
 
-.bubble::after {
-  content: '';
-  position: absolute;
-  top: 60%;
-  right: -52px;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border: 35px solid transparent;
-  border-left-color: #ffffff;
-  z-index: 1; /* 三角形的 z-index 層級較低 */
+input:focus {
+border-color: #ffffff;
+box-shadow: none;
+background-color: #ffffff;
+box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+input::placeholder {
+color: #b3b3b3;
+opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
-    .bubble {
-      font-size: 4vw; /* 調整文字大小 */
-      padding: 2vw; 
-      padding-left: 3vw;  
-      padding-right: 3vw; 
-    }
-  
-  .bubble::after {
-    content: '';
-    position: absolute;
-    top: 60%;
-    right: -16px;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border: 10px solid transparent;
-    border-left-color: #ffffff;
-    z-index: 1; /* 三角形的 z-index 層級較低 */
-  
+input {
+  width: 70vw;  /* Adjust width on smaller screens */
+  font-size: 5vw;  /* Adjust font size for smaller screens */
+  padding-left: 4vw; /* 調整這裡的值來改變文字的靠右程度 */
+
 }
 }
-  
-  @media screen and (max-width: 480px) {
-    .bubble {
-      font-size: 5vw; /* 調整文字大小 */
-      padding: 3vw; 
-      padding-left: 4vw;  
-      padding-right: 4vw; 
-    }
-  }
+
+@media screen and (max-width: 480px) {
+input {
+  width: 85vw;  /* Adjust width further for very small screens */
+  font-size: 5vw;  /* Increase font size for very small screens */
+  padding-left: 4vw; /* 調整這裡的值來改變文字的靠右程度 */
+
+}
+}
+
+
+.bubble {
+position: absolute;
+color: #333333;
+font-size: 54px;  
+text-align: center;
+line-height: 1.4;
+background-color: #ffffff; 
+border: 0.5px solid #ffffff;
+border-radius: 65px;
+padding: 30px; 
+padding-left: 35px;  
+padding-right: 35px; 
+filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.4));  
+z-index: 30; /* 氣泡框的 z-index 層級 */
+font-family: 'Cubic11'; 
+}
+
+.bubble::after {
+content: '';
+position: absolute;
+top: 60%;
+right: -52px;
+transform: translateY(-50%);
+width: 0;
+height: 0;
+border: 35px solid transparent;
+border-left-color: #ffffff;
+z-index: 1; /* 三角形的 z-index 層級較低 */
+}
+
+@media screen and (max-width: 768px) {
+.bubble {
+  font-size: 4vw; /* 調整文字大小 */
+  padding: 2vw; 
+  padding-left: 3vw;  
+  padding-right: 3vw; 
+}
+
+.bubble::after {
+content: '';
+position: absolute;
+top: 60%;
+right: -16px;
+transform: translateY(-50%);
+width: 0;
+height: 0;
+border: 10px solid transparent;
+border-left-color: #ffffff;
+z-index: 1; /* 三角形的 z-index 層級較低 */
+
+}
+}
+
+@media screen and (max-width: 480px) {
+.bubble {
+  font-size: 5vw; /* 調整文字大小 */
+  padding: 3vw; 
+  padding-left: 4vw;  
+  padding-right: 4vw; 
+}
+}
 /*.what {
-  position: absolute; /* 或 relative 
-  top: 60%; /* 調整這些值來改變位置 
-  left: 56%;
-  z-index: 30;
+position: absolute; /* 或 relative 
+top: 60%; /* 調整這些值來改變位置 
+left: 56%;
+z-index: 30;
 }*/
 
 /*淺台詞*/
 .subtext {
-  text-align: center; /* 使圖片居中 */
+text-align: center; /* 使圖片居中 */
 }
 
 .subtext img {
-  width: auto; /* 讓圖片自適應容器的寬度 */
-  z-index: 20;
-  width: auto; /* 你可以調整圖片大小 */
-  margin: 0 auto; /* 確保圖片水平置中 */
-  display: block; /* 使圖片成為塊級元素 */
-  margin-top: 20px ; /* 垂直距離*/
+width: auto; /* 讓圖片自適應容器的寬度 */
+z-index: 20;
+width: auto; /* 你可以調整圖片大小 */
+margin: 0 auto; /* 確保圖片水平置中 */
+display: block; /* 使圖片成為塊級元素 */
+margin-top: 20px ; /* 垂直距離*/
 
 }
 #subtitleContainer {
-    position: absolute;
-  }
-  
+position: absolute;
+}
+
 .nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(15%);
-  width:6vw;
-  height: 6vw;
-  border-radius: 50%;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  z-index: 100;
-  box-sizing: border-box;  /* 確保邊框不會影響尺寸 */
-  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.4)); /* 給三角形添加陰影 */
+position: absolute;
+top: 50%;
+transform: translateY(15%);
+width:6vw;
+height: 6vw;
+border-radius: 50%;
+border: none;
+background-color: transparent;
+cursor: pointer;
+z-index: 100;
+box-sizing: border-box;  /* 確保邊框不會影響尺寸 */
+filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.4)); /* 給三角形添加陰影 */
 
 }
 
 .nav-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;  /* 保持圖片完整，不會被切割 */
+width: 100%;
+height: 100%;
+object-fit: contain;  /* 保持圖片完整，不會被切割 */
 }
 
 #prevBtn {
-  top: 40%;
-  left: 20px; /* 靠左 */
+top: 40%;
+left: 20px; /* 靠左 */
 }
 
 #nextBtn {
-  top: 40%;
-  right: 20px; /* 靠右 */
+top: 40%;
+right: 20px; /* 靠右 */
 }
 
 @media screen and (max-width: 768px) {
 .nav-btn {
-  width:9vw;
-  height: 9vw;
+width:9vw;
+height: 9vw;
 }
 }
 
 
 footer {
-  position: fixed; /* 固定位置 */
-  bottom: 0; /* 固定在頁面底部 */
-  width: 100%;        /* 讓圖片寬度隨著父容器大小調整 */
+position: fixed; /* 固定位置 */
+bottom: 0; /* 固定在頁面底部 */
+width: 100%;        /* 讓圖片寬度隨著父容器大小調整 */
 }
 
 footer img {
-  width: 100%;        /* 讓圖片寬度隨著父容器大小調整 */
-  height: auto;       /* 高度自動調整，保持圖片的等比例 */
-  object-fit: contain; /* 這樣圖片不會被裁剪，可以保留完整的圖片 */
+width: 100%;        /* 讓圖片寬度隨著父容器大小調整 */
+height: auto;       /* 高度自動調整，保持圖片的等比例 */
+object-fit: contain; /* 這樣圖片不會被裁剪，可以保留完整的圖片 */
 }
 
 .header img {
-  width: 100%;        /* 讓圖片寬度隨著父容器大小調整 */
-  height: auto;       /* 高度自動調整，保持圖片的等比例 */
-  object-fit: contain; /* 這樣圖片不會被裁剪，可以保留完整的圖片 */
+width: 100%;        /* 讓圖片寬度隨著父容器大小調整 */
+height: auto;       /* 高度自動調整，保持圖片的等比例 */
+object-fit: contain; /* 這樣圖片不會被裁剪，可以保留完整的圖片 */
 }
+
+@media screen and (min-width: 768px){ 
+.header img {
+width: 70%;        /* 讓圖片寬度隨著父容器大小調整 */
+height: auto;       /* 高度自動調整，保持圖片的等比例 */
+object-fit: contain; /* 這樣圖片不會被裁剪，可以保留完整的圖片 */
+margin: 0 auto; /* 上下外邊距為 0，左右自動 */
+margin-top: -10px; /* 調整垂直距離 */
+}}
 
 
 .content img {
-  width: 100%;
-  height: 100%;
+width: 100%;
+height: 100%;
 }
 .nav-btn-container {
-  position: fixed;
-  bottom: 10px;
-  z-index: 100;
-  text-align: center;
+position: fixed;
+bottom: 10px;
+z-index: 100;
+text-align: center;
 }
 
 #translateBtn, #mouseWebBtn {
-  width: 10vw;
-  height: 10vw;
+width: 10vw;
+height: 10vw;
+border: none;
+background-color: transparent;
+cursor: pointer;
+position: fixed;
+bottom: 10px;
+z-index: 100;
+top: 70%;
+}
+
+#translateBtn {
+right: 10vw; /* 調整這裡的值來改變位置 */
+}
+
+#mouseWebBtn {
+right: 10px; /* 調整這裡的值來改變位置 */
+}
+
+#translateBtn img, #mouseWebBtn img {
+width: 100%;
+height: 100%;
+object-fit: contain;
+}
+
+#translateBtn:hover, #mouseWebBtn:hover {
+transform: scale(1.1); /* 放大效果 */
+transition: transform 0.3s ease; /* 平滑過渡效果 */
+}
+
+@media screen and (max-width: 768px) {
+#translateBtn, #mouseWebBtn {
+  width: 15vw;
+  height: 15vw;
   border: none;
   background-color: transparent;
   cursor: pointer;
   position: fixed;
   bottom: 10px;
   z-index: 100;
-  top: 70%;
+  top: 88%;
 }
-
 #translateBtn {
-  right: 10vw; /* 調整這裡的值來改變位置 */
+  right: 50px; /* 調整這裡的值來改變位置 */
 }
 
 #mouseWebBtn {
   right: 10px; /* 調整這裡的值來改變位置 */
 }
-
-#translateBtn img, #mouseWebBtn img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-#translateBtn:hover, #mouseWebBtn:hover {
-  transform: scale(1.1); /* 放大效果 */
-  transition: transform 0.3s ease; /* 平滑過渡效果 */
 }
 
 @media screen and (max-width: 768px) {
-  #translateBtn, #mouseWebBtn {
-      width: 15vw;
-      height: 15vw;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-      position: fixed;
-      bottom: 10px;
-      z-index: 100;
-      top: 88%;
-  }
-  #translateBtn {
-      right: 50px; /* 調整這裡的值來改變位置 */
-  }
-  
-  #mouseWebBtn {
-      right: 10px; /* 調整這裡的值來改變位置 */
-  }
+#translateBtn, #mouseWebBtn {
+  width: 15vw;
+  height: 15vw;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  z-index: 100;
+  top: 85%;
+}
+#translateBtn {
+  right: 63px; /* 調整這裡的值來改變位置 */
 }
 
-@media screen and (max-width: 768px) {
-  #translateBtn, #mouseWebBtn {
-      width: 15vw;
-      height: 15vw;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-      position: fixed;
-      bottom: 10px;
-      z-index: 100;
-      top: 85%;
-  }
-  #translateBtn {
-      right: 63px; /* 調整這裡的值來改變位置 */
-  }
-  
-  #mouseWebBtn {
-      right: 8px; /* 調整這裡的值來改變位置 */
-  }
+#mouseWebBtn {
+  right: 8px; /* 調整這裡的值來改變位置 */
+}
 }
 
 @media screen and (max-width: 1025px) {
+.subtext img {
+margin-top: 80px;
+max-width:85%;}
+#translateBtn, #mouseWebBtn {
+  width: 11vw;
+  height: 11vw;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  z-index: 100;
+  top: 85%;
+}
+#translateBtn {
+  right: 11vw; /* 調整這裡的值來改變位置 */
+}
+
+#mouseWebBtn {
+  right: 8px; /* 調整這裡的值來改變位置 */
+}
+.header {
+position: relative; /* 讓 .subtext 以它為基準定位 */
+z-index: 10; /* 確保 header 在較低層 */
+top: 0.2%; /* 上移動以與 header 重疊 */
+}
+input {
+
+top: 70%;
+}
+}
+
+@media screen and (max-width: 1366px) {
+.subtext img {
+  margin-top: 10vw;
+max-width:75%;}
+#translateBtn, #mouseWebBtn {
+    width: 10vw;
+    height: 10vw;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: fixed;
+    bottom: 10px;
+    z-index: 100;
+    top: 85%;
+}
+#translateBtn {
+    right: 11vw; /* 調整這裡的值來改變位置 */
+}
+
+#mouseWebBtn {
+    right: 8px; /* 調整這裡的值來改變位置 */
+}
+.header {
+  position: relative; /* 讓 .subtext 以它為基準定位 */
+  z-index: 10; /* 確保 header 在較低層 */
+  top: 0.2%; /* 上移動以與 header 重疊 */
+}
+input {
+
+  top: 80%;
+}
+}
+@media screen and (max-width: 480px) {
   .subtext img {
-    margin-top: 80px;
-  max-width:85%;}
-  #translateBtn, #mouseWebBtn {
-      width: 11vw;
-      height: 11vw;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-      position: fixed;
-      bottom: 10px;
-      z-index: 100;
-      top: 85%;
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    max-width:101%;
+    margin-top: 2vw;
   }
-  #translateBtn {
-      right: 11vw; /* 調整這裡的值來改變位置 */
+  input {
+  width: 70vw;;
+    top: 58%;
+  }
+  .nav-btn {
+    position: absolute;
+    margin-top: -25vw;
+  z-index: 100;}
+  #translateBtn, #mouseWebBtn {
+    top: 98%;
+    width: 20vw;
+    height: 20vw;}
+    #translateBtn {
+      right: 18vw; /* 調整這裡的值來改變位置 */
   }
   
   #mouseWebBtn {
       right: 8px; /* 調整這裡的值來改變位置 */
   }
-  .header {
-    position: relative; /* 讓 .subtext 以它為基準定位 */
-    z-index: 10; /* 確保 header 在較低層 */
-    top: 0.2%; /* 上移動以與 header 重疊 */
-  }
-  input {
-
-    top: 70%;
-  }
-  }
-
-  @media screen and (max-width: 1366px) {
-    .subtext img {
-      margin-top: 10vw;
-    max-width:75%;}
-    #translateBtn, #mouseWebBtn {
-        width: 10vw;
-        height: 10vw;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        position: fixed;
-        bottom: 10px;
-        z-index: 100;
-        top: 85%;
-    }
-    #translateBtn {
-        right: 11vw; /* 調整這裡的值來改變位置 */
-    }
-    
-    #mouseWebBtn {
-        right: 8px; /* 調整這裡的值來改變位置 */
-    }
-    .header {
-      position: relative; /* 讓 .subtext 以它為基準定位 */
-      z-index: 10; /* 確保 header 在較低層 */
-      top: 0.2%; /* 上移動以與 header 重疊 */
-    }
-    input {
-  
-      top: 80%;
-    }
-    }
-    @media screen and (max-width: 480px) {
-      .subtext img {
-        display: flex;
-        justify-content: center; /* 水平置中 */
-        max-width:101%;
-        margin-top: 2vw;
-      }
-      input {
-      width: 70vw;;
-        top: 58%;
-      }
-      .nav-btn {
-        position: absolute;
-        margin-top: -25vw;
-      z-index: 100;}
-      #translateBtn, #mouseWebBtn {
-        top: 98%;
-        width: 20vw;
-        height: 20vw;}
-        #translateBtn {
-          right: 18vw; /* 調整這裡的值來改變位置 */
-      }
-      
-      #mouseWebBtn {
-          right: 8px; /* 調整這裡的值來改變位置 */
-      }
-    }
+}

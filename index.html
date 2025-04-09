@@ -25,17 +25,17 @@
 <!--淺台詞-->
 <div class="subtext" id="subtext">
   <!-- 顯示潛台詞圖片 -->
-  <img id="subtitleContainer" src="./img/subtext1.gif" alt="潛台詞圖片">
+  <img id="subtitleContainer" src="./img/subtext1.webp" alt="潛台詞圖片">
 </div>
 <!--
 <div class="what">
   <img id="whatpng" src="./img/w.png" alt="what">
 </div>-->
 <button id="prevBtn" class="nav-btn">
-  <img src="./img/lastpage.png" alt="Previous">
+  <img src="./img/lastpage.svg" alt="Previous">
 </button>
 <button id="nextBtn" class="nav-btn">
-  <img src="./img/nextpage.png" alt="Next">
+  <img src="./img/nextpage.svg" alt="Next">
 </button>
 <!-- 進度條 
 <input type="range" id="progressBar" min="0" max="8" value="0" step="1" onchange="updateSubtextFromProgress()">-->
@@ -45,13 +45,13 @@
 
   <button class="nav-btn" id="translateBtn">
     <a href="https://jacinda1101.github.io/subtextfolder/" target="_blank">
-      <img src="./img/translate.png" alt="Translate">
+      <img src="./img/translate.svg" alt="Translate">
     </a>
   </button>
   
   <button class="nav-btn" id="mouseWebBtn">
     <a href="https://wanmaru01.github.io/subtext-translator.github.io/" target="_blank">
-      <img src="./img/mouseweb.png" alt="Mouse Web">
+      <img src="./img/mouseweb.svg" alt="Mouse Web">
     </a>
   </button>
 
@@ -185,41 +185,64 @@ function addBubble(text) {
 
 
     let currentIndex = 0;
-// 定義不同的漸層色組
+
+const backgroundColor = [ 
+  "#1e010b",
+  "#1e010b",
+  "#1e010b",
+  "#1e010b",
+  "#1e010b",
+  "#1e010b",
+  "#1e010b",
+  "#001d0b",
+  ];
+
+const backgroundPattern = [
+  "./img/pattern.webp",
+  "./img/pattern.webp",
+  "./img/pattern.webp",
+  "./img/pattern.webp",
+  "./img/pattern.webp",
+  "./img/pattern.webp",
+  "./img/pattern.webp",
+  "./img/pattern2.webp",
+  "./img/pattern2.webp",
+  ];
+
 const gradients = [
-  "linear-gradient(to bottom, #ffffff 0%, #7cddcf 45%, #ffffff 100%)", // 第1組 日常
-  "linear-gradient(to bottom, #ffffff 0%, #7cddcf 45%, #ffffff 100%)", // 第2組 職場
-  "linear-gradient(to bottom, #ffffff 0%, #7cddcf 45%, #ffffff 100%)", // 第3組 日常
-  "linear-gradient(to bottom, #ffffff 0%, #7cddcf 45%, #ffffff 100%)", // 第4組 日常
-  "linear-gradient(to bottom, #ffffff 0%, #a2e6ff 45%, #ffffff 100%)", // 第5組
-  "linear-gradient(to bottom, #ffffff 0%, #4fceff 45%, #ffffff 100%)", // 第6
-  "linear-gradient(to bottom, #ffffff 0%, #a2e6ff 45%, #ffffff 100%)", // 第7組
-  "linear-gradient(to bottom, #ffffff 0%, #ffff00 45%, #ffffff 100%)", // 第8組
-  "linear-gradient(to bottom, #ffffff 0%, #e0bcff 45%, #ffffff 100%)", // 第9組
+  "linear-gradient(to bottom, #00ffff 0%, #e50771 10%, rgba(229, 7, 113, 0.5) 15%, transparent 20%, transparent 70%, rgba(229, 7, 113, 0.5)80%, #e50771 85%, #00ffff 100%)", // 第1組 日常
+  "linear-gradient(to bottom, #00accd 0%, #d6262d 10%, rgba(214, 38, 45, 0.5) 15%, transparent 20%, transparent 70%, rgba(214, 38, 45, 0.5)80%, #d6262d 85%, #00accd 100%)", // 第2組 職場
+  "linear-gradient(to bottom, #00ffff 0%, #e50771 10%, rgba(229, 7, 113, 0.5) 15%, transparent 20%, transparent 70%, rgba(229, 7, 113, 0.5)80%, #e50771 85%, #00ffff 100%)", // 第3組 日常
+  "linear-gradient(to bottom, #00ffff 0%, #e50771 10%, rgba(229, 7, 113, 0.5) 15%, transparent 20%, transparent 70%, rgba(229, 7, 113, 0.5)80%, #e50771 85%, #00ffff 100%)", // 第4組 日常
+  "linear-gradient(to bottom, #00accd 0%, #d6262d 10%, rgba(214, 38, 45, 0.5) 15%, transparent 20%, transparent 70%, rgba(214, 38, 45, 0.5)80%, #d6262d 85%, #00accd 100%)", // 第5組 職場
+  "linear-gradient(to bottom, #00accd 0%, #d6262d 10%, rgba(214, 38, 45, 0.5) 15%, transparent 20%, transparent 70%, rgba(214, 38, 45, 0.5)80%, #d6262d 85%, #00accd 100%)", // 第6組 職場
+  "linear-gradient(to bottom, #00accd 0%, #d6262d 10%, rgba(214, 38, 45, 0.5) 15%, transparent 20%, transparent 70%, rgba(214, 38, 45, 0.5)80%, #d6262d 85%, #00accd 100%)", // 第7組 職場
+  "linear-gradient(to bottom, #c050f7 0%, #32d748 10%, rgba(50, 215, 72, 0.5) 15%, transparent 20%, transparent 70%, rgba(50, 215, 72, 0.5)80%, #32d748 85%, #c050f7 100%)", // 第8組 家庭
+  "linear-gradient(to bottom, #c050f7 0%, #32d748 10%, rgba(50, 215, 72, 0.5) 15%, transparent 20%, transparent 70%, rgba(50, 215, 72, 0.5)80%, #32d748 85%, #c050f7 100%)", // 第9組 家庭
 ];
 
 const headImages = [
-  "./img/head1.png", 
-  "./img/head2.png", 
-  "./img/head3.png", 
-  "./img/head4.png", 
-  "./img/head5.png", 
-  "./img/head6.png", 
-  "./img/head7.png", 
-  "./img/head8.png",   
-  "./img/head9.png", 
+  "./img/head01.png", 
+  "./img/head02.png", 
+  "./img/head03.png", 
+  "./img/head04.png", 
+  "./img/head05.png", 
+  "./img/head06.png", 
+  "./img/head07.png", 
+  "./img/head08.png",   
+  "./img/head09.png", 
 ];
 
 const subtitles = [
-  "./img/subtext1.gif", 
-  "./img/subtext2.gif", 
-  "./img/subtext3.gif", 
-  "./img/subtext4.gif", 
-  "./img/subtext5.gif", 
-  "./img/subtext6.gif", 
-  "./img/subtext7.gif", 
-  "./img/subtext8.gif",   
-  "./img/subtext9.gif", 
+  "./img/subtext1.webp", 
+  "./img/subtext2.webp", 
+  "./img/subtext3.webp", 
+  "./img/subtext4.webp", 
+  "./img/subtext5.webp", 
+  "./img/subtext6.webp", 
+  "./img/subtext7.webp", 
+  "./img/subtext8.webp",   
+  "./img/subtext9.webp", 
 ];
 
 function clearBubbles() {
@@ -231,34 +254,65 @@ function clearBubbles() {
 }
 
 document.getElementById("prevBtn").addEventListener("click", () => {
-  clearBubbles(); // 清空對話泡泡
+  clearBubbles(); 
   currentIndex = (currentIndex - 1 + subtitles.length) % subtitles.length;
   updateContent();
 });
 
 document.getElementById("nextBtn").addEventListener("click", () => {
-  clearBubbles(); // 清空對話泡泡
+  clearBubbles(); 
   currentIndex = (currentIndex + 1) % subtitles.length;
   updateContent();
 });
 
+
+//0406 update
 function updateContent() {
-  console.log("Updating content...");
-  console.log("currentIndex: ", currentIndex);
-  console.log("Current head image path: ", headImages[currentIndex]);
-  
-  // 更新圖片
+  // 更新背景
+  if (gradients[currentIndex]) {
+    document.body.style.backgroundColor = backgroundColor[currentIndex]; // 設置背景色
+
+     document.body.style.backgroundImage = `
+      url('${backgroundPattern[currentIndex]}'), 
+      url('./img/secondpattern.webp'), 
+      ${gradients[currentIndex]}
+    `;
+
+     document.body.style.backgroundRepeat = "repeat, repeat, no-repeat";  
+    document.body.style.backgroundSize = "100px 100px, 540px 443px, cover";  
+    document.body.style.backgroundPosition = "center, 40px 40px, center";  
+    document.body.style.backgroundPosition = "center, center, center";  
+  } else {
+    console.log("Gradient not found");
+  }
+
+
+  // 更新 headImages
+  const headImageElement = document.getElementById("header-image");
+  if (headImageElement) {
+    headImageElement.src = `${headImages[currentIndex]}?t=${new Date().getTime()}`;
+  } else {
+    console.log("header-image not found");
+  }
+
+  function updateContent() {
+  // 更新 subtitles
   const subtitleContainer = document.getElementById("subtitleContainer");
-  const headImageElement = document.getElementById("header-image"); // 修正這裡的 ID
+  if (subtitleContainer) {
+    subtitleContainer.src = subtitles[currentIndex];
+    console.log(`Subtitle updated to: ${subtitles[currentIndex]}`);
+
+}}
   
   if (subtitleContainer) {
     subtitleContainer.src = subtitles[currentIndex];
     
-    // 單獨調整 subtext4.gif 的顯示位置
-    if (currentIndex === 3) {
+      // 單獨調整 subtext4 的顯示位置
+      if (currentIndex === 3) {
       subtitleContainer.style.position = "absolute";
-      subtitleContainer.style.top = "-60%"; // 調整這裡的值來改變位置
-      console.log("Adjusted position for subtext4.gif");
+      subtitleContainer.style.top = "-40%";  
+      subtitleContainer.style.left = "46%"; 
+      console.log("Adjusted position for subtext4.webp");
     } else {
       subtitleContainer.style.position = "";
       subtitleContainer.style.top = "";
@@ -266,22 +320,16 @@ function updateContent() {
   } else {
     console.log("subtitleContainer not found");
   }
+}
   
   if (headImageElement) {
     headImageElement.src = `${headImages[currentIndex]}?t=${new Date().getTime()}`; // 強制重新加載圖片
   } else {
     console.log("header-image not found"); // 修正這裡的 ID
   }
-  
-  // 更新背景
-  if (gradients[currentIndex]) {
-    document.body.style.background = `url('./img/bg.png') no-repeat center, url('./img/pattern.png') no-repeat center/cover, ${gradients[currentIndex]}`;
-  } else {
-    console.log("Gradient not found");
-  }
 
-  document.body.style.height = '1920px'; // 原為1920
-}
+//  document.body.style.height = '1920px'; // 原為1920
+
 
 
 // 初始化畫面
