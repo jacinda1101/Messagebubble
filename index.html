@@ -23,7 +23,7 @@
   
   <input id="textInput" placeholder="請輸入你的真實想法..." oninput="createBubble()" />
 <!--淺台詞-->
-<div class="subtext" id="subtext">
+<div class="subtext" id="subtext" style="display: flex; justify-content: center; align-items: center;">
   <!-- 顯示潛台詞圖片 -->
   <img id="subtitleContainer" src="./img/subtext1.webp" alt="潛台詞圖片">
 </div>
@@ -310,8 +310,8 @@ function updateContent() {
       // 單獨調整 subtext4 的顯示位置
       if (currentIndex === 3) {
       subtitleContainer.style.position = "absolute";
-      subtitleContainer.style.top = "-40%";  
-      subtitleContainer.style.left = "46%"; 
+      subtitleContainer.style.top = "-30%";  
+      subtitleContainer.style.left = "30%"; 
       console.log("Adjusted position for subtext4.webp");
     } else {
       subtitleContainer.style.position = "";
